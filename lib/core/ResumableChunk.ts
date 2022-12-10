@@ -1,5 +1,5 @@
 import type { ResumableConfig } from '../config/resumableConfig'
-import { type CHUNK_STATUS_VALUES, CHUNK_STATUS } from '../constants/chunkStatus.js'
+import { type CHUNK_STATUS_VALUES, CHUNK_STATUS } from '../constants/chunkStatus'
 import type { Nillable } from '../helpers'
 import type { Resumable } from './Resumable'
 import type { ResumableFile } from './ResumableFile'

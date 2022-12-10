@@ -179,7 +179,7 @@ export const resumableConfig: ResumableConfig = {
   generateUniqId(fileWithPath) {
     const relativePath = fileWithPath.relativePath || fileWithPath.file.webkitRelativePath || ''
 
-    return `${fileWithPath.file.name}-${relativePath.replace(/[^\w-]/gim, '')}-${fileWithPath.file.size}-${
+    return `${fileWithPath.file.name}-${relativePath.replaceAll(/[^\w-]/gim, '')}-${fileWithPath.file.size}-${
       fileWithPath.file.lastModified
     }`
   },

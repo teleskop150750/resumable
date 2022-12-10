@@ -181,13 +181,11 @@ export class Resumable {
     for (const fileWithPath of fileList) {
       if (!checkFile(fileWithPath.file, this.config)) {
         // TODO
-        // eslint-disable-next-line no-continue
         return
       }
 
       const addNewFile = (uniqId: string) => {
         if (!this.getResumableFileByUid(uniqId)) {
-          // eslint-disable-next-line @typescript-eslint/no-use-before-define
           const resumableFile = new ResumableFile(this, fileWithPath, uniqId)
 
           newFiles.push(resumableFile)
@@ -299,7 +297,6 @@ export class Resumable {
     return true
   }
 
-  // eslint-disable-next-line class-methods-use-this
   private sendFistOrLastChunkForFiles() {
     for (const resumableFile of this.resumableFiles) {
       if (resumableFile.getChunks().length > 0 && resumableFile.getChunks()[0].getStatus() === CHUNK_STATUS.PENDING) {

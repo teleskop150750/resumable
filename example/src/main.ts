@@ -101,7 +101,7 @@ const resumable = new Resumable({
     const relativePath = fileWithPath.relativePath || fileWithPath.file.webkitRelativePath || fileWithPath.file.name
 
     return Md5.hashStr(
-      `${relativePath.replace(/[^\w-]/gim, '')}-${fileWithPath.file.size}-${fileWithPath.file.lastModified}`,
+      `${relativePath.replaceAll(/[^\w-]/gim, '')}-${fileWithPath.file.size}-${fileWithPath.file.lastModified}`,
     )
   },
 })

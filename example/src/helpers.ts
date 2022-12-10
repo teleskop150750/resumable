@@ -1,5 +1,5 @@
 export const configureDrop = (drop: HTMLDivElement) => {
-  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
+  ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
     drop.addEventListener(eventName, preventDefaults, false)
   })
   ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName: string) => {

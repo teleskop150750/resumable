@@ -24,7 +24,7 @@ export const findFiles = (items: Array<(cb: () => void) => void>, cb: () => void
  * @param items     целевой список элементов
  * @param cb        callback вызываемый после обхода каталога
  */
-const processDirectory = (directory: FileSystemDirectoryEntry, path: string, items: FileWithPath[], cb: () => any) => {
+const processDirectory = (directory: FileSystemDirectoryEntry, path: string, items: FileWithPath[], cb: () => void) => {
   const dirReader = directory.createReader()
 
   dirReader.readEntries((entries) => {
@@ -62,7 +62,7 @@ export const processItem = (
 
   if ('isFile' in item && item.isFile) {
     // предоставленный файл
-    (item as FileSystemFileEntry).file((file) => {
+    ;(item as FileSystemFileEntry).file((file) => {
       items.push({ file, relativePath: path + file.name })
       cb()
     })

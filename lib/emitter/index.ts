@@ -1,9 +1,10 @@
 // @see https://github.com/ai/nanoevents
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type EventsMap = Record<string, any>
 
-// eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
 interface DefaultEvents extends EventsMap {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [event: string]: (...args: any) => void
 }
 

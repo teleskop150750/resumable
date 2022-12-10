@@ -4,7 +4,6 @@
   <img src="./docs/example.png" />
 </p>
 
-
 Это реализация [Resumable.js](https://github.com/23/resumable.js) в виде библиотеки typescript
 
 ## Что такое Resumable.js
@@ -123,18 +122,18 @@ interface ResumableConfig {
   prioritizeFirstAndLastChunk: false
   /**
    * Размер каждого загруженного фрагмента данных в байтах.
-   * Если `forceChunkSize = false`, последний загруженный чана будет 
+   * Если `forceChunkSize = false`, последний загруженный чана будет
    * как минимум такого размера или не более чем в два раза больше.
    * (По умолчанию: 1*1024*1024 )
    */
   chunkSize: number
-    /**
-   * Минимальный допустимый размер файла. 
+  /**
+   * Минимальный допустимый размер файла.
    * (По умолчанию: undefined)
    */
   minFileSize: Nillable<number>
   /**
-   * Максимально допустимый размер файла. 
+   * Максимально допустимый размер файла.
    * (По умолчанию: undefined)
    */
   maxFileSize: Nillable<number>
@@ -186,7 +185,7 @@ interface ResumableConfig {
    */
   identifierParameterName: string
   /**
-   * Имя исходного параметра POST с именем файла, используемого для фрагмента файла 
+   * Имя исходного параметра POST с именем файла, используемого для фрагмента файла
    * (по умолчанию: resumableFileName)
    */
   fileNameParameterName: string
@@ -238,7 +237,7 @@ interface ResumableConfig {
    */
   setChunkTypeFromFile: boolean
   /**
-   * Типы файлов, разрешенные для загрузки. Пустой массив допускает любой тип файла. 
+   * Типы файлов, разрешенные для загрузки. Пустой массив допускает любой тип файла.
    * (По умолчанию: [])
    */
   fileTypes: Array<string>
@@ -347,7 +346,6 @@ interface ResumableEvents {
    */
   chunkingComplete: (file: ResumableFile) => void
 }
-
 ```
 
 ## ResumableFile

@@ -1,0 +1,8 @@
+export const CHUNK_STATUS = {
+  PENDING: 'PENDING',
+  UPLOADING: 'UPLOADING',
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR',
+} as const
+
+export type CHUNK_STATUS_VALUES = typeof CHUNK_STATUS[keyof typeof CHUNK_STATUS]

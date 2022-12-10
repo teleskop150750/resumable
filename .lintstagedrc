@@ -1,0 +1,4 @@
+{
+  "*.{ts,cts,js,cjs}": ["eslint --fix"],
+  "*.json": ["eslint --fix"]
+}

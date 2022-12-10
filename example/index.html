@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="form">
+        <div class="form__left">
+          <label class="token">
+            <span class="token__label">Token</span>
+            <textarea class="token__input"></textarea>
+          </label>
+        </div>
+        <div class="form__right">
+          <label class="target target--send">
+            <span class="target__label">Target</span>
+            <input class="target__input" type="text" value="http://localhost:81/api/v1/files" />
+          </label>
+          <label class="target target--test">
+            <span class="target__label">Test target</span>
+            <input class="target__input" type="text" value="http://localhost:81/api/v1/check-chunk" />
+          </label>
+        </div>
+      </div>
+
+      <div class="drop">
+        Drop files here to upload or <a class="resumable-browse" href="#"><u>select from your computer</u></a>
+      </div>
+
+      <div class="uploader-button">
+        <div class="uploader-button__left">
+          <button class="button-add">Add file</button>
+          <button class="button-upload">Upload</button>
+        </div>
+
+        <div class="uploader-button__right">
+          <button type="button" class="progress-button progress-button--resume">Resume</button>
+          <button type="button" class="progress-button progress-button--pause">Pause</button>
+          <button type="button" class="progress-button progress-button--cancel">Cancel</button>
+        </div>
+      </div>
+
+      <div>
+        <form class="form-file">
+          <!-- <input type="file" name="file" class="input" webkitdirectory /> -->
+          <input type="file" name="file" class="input" multiple />
+        </form>
+      </div>
+
+      <div class="resumable-progress">
+        <div class="progress">
+          <div class="progress__bar"></div>
+        </div>
+      </div>
+
+      <div class="resumable-list"></div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

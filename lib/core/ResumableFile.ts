@@ -1,8 +1,8 @@
-import type { ResumableConfig } from '../config/resumableConfig'
-import { CHUNK_STATUS } from '../constants'
-import type { FileWithPath } from '../types'
+import type { ResumableConfig } from './config'
+import { CHUNK_STATUS } from './constants'
 import type { Resumable } from './Resumable'
 import { ResumableChunk } from './ResumableChunk'
+import type { FileWithPath } from './types'
 
 export class ResumableFile {
   private readonly uniqId: string

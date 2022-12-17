@@ -1,6 +1,5 @@
-import type { ResumableChunk } from '../core/ResumableChunk'
-import type { Nillable } from '../helpers/types'
-import type { FileWithPath } from '../types'
+import type { ResumableChunk } from './ResumableChunk'
+import type { FileWithPath, Nillable } from './types'
 
 export interface ResumableConfig {
   /**

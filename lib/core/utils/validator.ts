@@ -1,4 +1,4 @@
-import type { ResumableConfig } from '../../config/resumableConfig'
+import type { ResumableConfig } from '../config'
 
 export const checkFile = (file: File, options: ResumableConfig) => {
   if (!checkFileType(file, options.fileTypes)) {

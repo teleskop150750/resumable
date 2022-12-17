@@ -179,7 +179,7 @@ resumable.on('fileSuccess', (file) => {
   el.textContent = '(completed)'
 })
 
-resumable.on('fileError', (file, message) => {
+resumable.on('fileError', (file, message = '') => {
   // Reflect that the file upload has resulted in error
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const el = document.querySelector(`.resumable-file-${file.getUniqueId()} .resumable-file-progress`)!

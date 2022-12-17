@@ -1,8 +1,8 @@
-import type { ResumableConfig } from '../config/resumableConfig'
-import { type CHUNK_STATUS_VALUES, CHUNK_STATUS } from '../constants/chunkStatus'
-import type { Nillable } from '../helpers'
+import type { ResumableConfig } from './config'
+import { type CHUNK_STATUS_VALUES, CHUNK_STATUS } from './constants'
 import type { Resumable } from './Resumable'
 import type { ResumableFile } from './ResumableFile'
+import type { Nillable } from './types'
 
 export class ResumableChunk {
   private offset: number

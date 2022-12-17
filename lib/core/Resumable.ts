@@ -1,12 +1,11 @@
-import { type ClientResumableConfig, type ResumableConfig, resumableConfig } from '../config/resumableConfig'
-import { CHUNK_STATUS } from '../constants'
 import { createEmitter } from '../emitter'
-import type { ResumableEvents } from '../events'
-import { type Nillable, stop } from '../helpers'
-import { findFiles, processItem } from '../hooks'
-import { checkFile } from '../hooks/useFileChecker'
-import type { FileWithPath } from '../types'
+import { stop } from '../helpers'
+import { type ClientResumableConfig, type ResumableConfig, resumableConfig } from './config'
+import { CHUNK_STATUS } from './constants'
+import type { ResumableEvents } from './events'
 import { ResumableFile } from './ResumableFile'
+import type { FileWithPath, Nillable } from './types'
+import { checkFile, findFiles, processItem } from './utils'
 
 export class Resumable {
   private resumableFiles: ResumableFile[] = []

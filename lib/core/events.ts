@@ -1,5 +1,5 @@
-import type { ResumableFile } from '../core'
-import type { FileWithPath } from '../types'
+import type { ResumableFile } from '.'
+import type { FileWithPath } from './types'
 
 export interface ResumableEvents {
   /**

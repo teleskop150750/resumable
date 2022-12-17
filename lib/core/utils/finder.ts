@@ -1,4 +1,4 @@
-import type { FileWithPath } from '../../types'
+import type { FileWithPath } from '../types'
 
 /**
  * cps-style стиль непрерывной передачи.

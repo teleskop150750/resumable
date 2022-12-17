@@ -1,3 +1,3 @@
-export * from './constants'
 export * from './core'
-export * from './events'
+export * from './core/config'
+export * from './core/types'

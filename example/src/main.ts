@@ -33,6 +33,7 @@ const handleSendChunk = async (chunk: ResumableChunk) => {
   const formData = new FormData()
 
   formData.append('file', data, chunk.getResumableFile().getName())
+
   try {
     const response = await axios.postForm(targetSend.value.trim(), formData, {
       params,
@@ -52,12 +53,12 @@ const handleSendChunk = async (chunk: ResumableChunk) => {
     }
 
     if (error instanceof AxiosError) {
-      chunk.doneSend(false, true, error.response?.data)
+      chunk.doneSend(false, error.response?.data, true)
 
       return
     }
 
-    chunk.doneSend(false, true)
+    chunk.doneSend(false, undefined, true)
   }
 }
 
@@ -92,11 +93,11 @@ const handleTestChunk = async (chunk: ResumableChunk) => {
 }
 
 const resumable = new Resumable({
-  chunkSize: 1 * 1024 * 1024,
+  chunkSize: 10 * 1024 * 1024,
   simultaneousUploads: 1,
   handleSendChunk,
   handleTestChunk,
-  testChunks: false,
+  testChunks: true,
   generateUniqId(fileWithPath) {
     const relativePath = fileWithPath.relativePath || fileWithPath.file.webkitRelativePath || fileWithPath.file.name
 
@@ -172,6 +173,7 @@ resumable.on('complete', () => {
 })
 
 resumable.on('fileSuccess', (file) => {
+  console.log(file.getResponse())
   // Reflect that the file upload has completed
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const el = document.querySelector(`.resumable-file-${file.getUniqueId()} .resumable-file-progress`)!

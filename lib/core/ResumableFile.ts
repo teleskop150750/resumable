@@ -2,7 +2,7 @@ import type { ResumableConfig } from './config'
 import { CHUNK_STATUS } from './constants'
 import type { Resumable } from './Resumable'
 import { ResumableChunk } from './ResumableChunk'
-import type { FileWithPath } from './types'
+import type { FileWithPath, Nillable } from './types'
 
 export class ResumableFile {
   private readonly uniqId: string
@@ -22,6 +22,8 @@ export class ResumableFile {
   private config: ResumableConfig
 
   private resumable: Resumable
+
+  private response: Nillable<unknown> = undefined
 
   public constructor(resumable: Resumable, fileWithPath: FileWithPath, uniqId: string) {
     this.uniqId = uniqId
@@ -106,6 +108,14 @@ export class ResumableFile {
 
   public setError(val = true) {
     this.error = val
+  }
+
+  public setResponse(val: Nillable<unknown> = undefined) {
+    this.response = val
+  }
+
+  public getResponse(): Nillable<unknown> {
+    return this.response
   }
 
   // METHODS

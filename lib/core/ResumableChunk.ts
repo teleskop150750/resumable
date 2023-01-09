@@ -104,8 +104,9 @@ export class ResumableChunk {
     handleSendChunk(this)
   }
 
-  public doneSend(isSuccess: boolean, isPermanentError = false, response: unknown = undefined) {
+  public doneSend(isSuccess: boolean, response: unknown = undefined, isPermanentError = false) {
     this.controller = undefined
+    this.resumableFile.setResponse(response)
 
     if (isSuccess) {
       this.status = CHUNK_STATUS.SUCCESS

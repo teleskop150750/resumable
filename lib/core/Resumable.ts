@@ -106,7 +106,7 @@ export class Resumable {
     this.appendFilesFromFileList([...filesWithPath], event)
   }
 
-  public removeFile(file: ResumableFile) {
+  public removeResumableFile(file: ResumableFile) {
     for (let i = this.resumableFiles.length - 1; i >= 0; i--) {
       const el = this.resumableFiles[i]
 
@@ -148,7 +148,7 @@ export class Resumable {
       // при загрузке одного файла файл уже добавлен,
       // и при попытке добавить 1 новый файл просто замените уже добавленный файл
       if (maxFiles === 1 && this.resumableFiles.length === 1 && fileList.length === 1) {
-        this.removeFile(this.resumableFiles[0])
+        this.removeResumableFile(this.resumableFiles[0])
       } else {
         maxFilesErrorCallback(fileList, maxFiles)
 

@@ -146,7 +146,7 @@ export class ResumableFile {
         this.resumable.uploadNextChunk()
       }
     })
-    this.resumable.removeFile(this)
+    this.resumable.removeResumableFile(this)
     this.resumable.emit('fileProgress', this, undefined)
   }
 

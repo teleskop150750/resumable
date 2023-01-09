@@ -107,8 +107,9 @@ const resumable = new Resumable({
   },
 })
 
-input.addEventListener('change', (evt) => {
-  resumable.handleInputChange(evt)
+input.addEventListener('change', async (evt) => {
+  await resumable.handleInputChange(evt)
+  resumable.upload()
 })
 
 buttonUpload.addEventListener('click', () => {

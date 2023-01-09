@@ -191,7 +191,7 @@ export class ResumableFile {
     return result
   }
 
-  public bootstrap() {
+  public async bootstrap() {
     this.setError(false)
     this.chunks = []
     this.prevProgress = 0
@@ -199,15 +199,11 @@ export class ResumableFile {
     const maxOffset = Math.max(round(this.getSize() / this.config.chunkSize), 1)
 
     for (let offset = 0; offset < maxOffset; offset++) {
-      window.setTimeout(() => {
-        this.chunks.push(new ResumableChunk(this.resumable, this, offset))
-        this.resumable.emit('chunkingProgress', this, offset / maxOffset)
-      }, 0)
+      this.chunks.push(new ResumableChunk(this.resumable, this, offset))
+      this.resumable.emit('chunkingProgress', this, offset / maxOffset)
     }
 
-    window.setTimeout(() => {
-      this.resumable.emit('chunkingComplete', this)
-    }, 0)
+    this.resumable.emit('chunkingComplete', this)
   }
 
   public handleChunkSuccess(response: unknown = undefined) {

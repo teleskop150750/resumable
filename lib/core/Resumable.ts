@@ -172,9 +172,7 @@ export class Resumable {
         return
       }
 
-      setTimeout(() => {
-        this.emit('filesAdded', newFiles, skippedFiles)
-      }, 0)
+      this.emit('filesAdded', newFiles, skippedFiles)
     }
 
     for (const fileWithPath of fileList) {
@@ -189,9 +187,7 @@ export class Resumable {
 
           newFiles.push(resumableFile)
           this.resumableFiles.push(resumableFile)
-          setTimeout(() => {
-            this.emit('fileAdded', resumableFile, event)
-          }, 0)
+          this.emit('fileAdded', resumableFile, event)
         } else {
           skippedFiles.push(fileWithPath)
         }
